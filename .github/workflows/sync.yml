@@ -37,6 +37,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      # Remove unwanted files
+      - name: Delete Unwanted Files
+        run: |
+          rm -rf source-repo
+      
       # Commit and push changes to target
       - name: Commit and Push Changes
         run: |
