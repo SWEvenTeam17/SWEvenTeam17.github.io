@@ -1,3 +1,7 @@
+permissions:
+  contents: write
+  actions: read
+
 name: Sync Folder to GitHub Pages
 
 on:
