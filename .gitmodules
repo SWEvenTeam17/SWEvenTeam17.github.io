@@ -1,0 +1,3 @@
+[submodule "pdf"]
+	path = pdf
+	url = https://github.com/SWEvenTeam17/documentazione.git
