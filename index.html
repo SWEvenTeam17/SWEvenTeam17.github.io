@@ -1,232 +1,1042 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SWEvenTeam17, progetto di Ingegneria del Software 2024-2025 Università di Padova.">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/index.js" defer></script>
-  <title>SWEvenTeam17</title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SWEvenTeam17, progetto di Ingegneria del Software 2024-2025 Università di Padova.">
+    <meta name="author" content="SWEvenTeam17">
+    <meta name="keywords" content="Ingegneria del Software, Università di Padova, Progetto, SWEvenTeam17">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+      
+    <!-- Custom CSS -->
+    <style>
+      :root {
+        --primary-color: #2273c3;
+        --secondary-color: #2c3e50;
+        --accent-color: #e74c3c;
+        --light-bg: #f8f9fa;
+        --dark-bg: #121212;
+        --text-light: #f8f9fa;
+        --text-dark: #212529;
+        --transition-speed: 0.3s;
+        --card-light-bg: #ffffff;
+        --card-dark-bg: #1e1e1e;
+        --link-light: #0d6efd;
+        --link-dark: #6ea8fe;
+        --link-hover-light: #0a58ca;
+        --link-hover-dark: #8bb9fe;
+        --navbar-dark: #1a1a1a;
+        --border-dark: #444444;
+      }
 
-<body>
-  <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          SWEvenTeam17
+      /* Style  */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        scroll-behavior: smooth;
+        transition: background-color var(--transition-speed), color var(--transition-speed);
+        background-color: var(--light-bg);
+        color: var(--text-dark);
+      }
+
+      body.dark-mode {
+        background-color: var(--dark-bg);
+        color: var(--text-light);
+      }
+
+      /* Style for nav */
+      .navbar {
+        transition: background-color var(--transition-speed);
+        padding: 1rem 2rem;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--primary-color);
+      }
+
+      .nav-link {
+        font-weight: 500;
+        margin: 0 10px;
+        position: relative;
+        transition: color var(--transition-speed);
+      }
+
+      .nav-link:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--primary-color);
+        transition: width var(--transition-speed);
+      }
+
+      .nav-link:hover:after, .nav-link.active:after {
+        width: 100%;
+      }
+
+      .dark-mode .navbar {
+        background-color: var(--navbar-dark) !important;
+      }
+
+      .dark-mode .navbar-brand, .dark-mode .nav-link {
+        color: var(--text-light);
+      }
+
+      .dark-mode .nav-link:hover, .dark-mode .nav-link.active {
+        color: #5dade2;
+      }
+
+      /* Style for sections */
+      section {
+        padding: 5rem 0;
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--primary-color);
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-title:after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background-color: var(--primary-color);
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .dark-mode .section-title {
+        color: #5dade2;       
+      }
+
+      .dark-mode .section-title:after {
+        background-color: #5dade2;
+      }
+
+      .hero-section {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        color: white;
+        text-align: center;
+        padding: 6rem 0;
+        margin-bottom: 2rem;
+        border-radius: 0 0 25% 25% / 10%;
+      }
+
+      .hero-section h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-section p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Style for cards */
+      .card {
+        font-size: 10pt;
+        transition: transform 0.3s, box-shadow 0.3s;
+        border-radius: 15px;
+        overflow: hidden;
+        height: 100%;
+        border: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        background-color: var(--card-light-bg);
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-title {
+        color: var(--primary-color);
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+
+      .dark-mode .card {
+        background-color: var(--card-dark-bg);
+        color: var(--text-light);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .dark-mode .card-title {
+        color: #5dade2;        
+      }
+
+      /* Style for lists */
+      .list-group-item {
+        transition: background-color var(--transition-speed);
+        background-color: var(--card-light-bg);
+      }
+
+      .dark-mode .list-group-item {
+        background-color: var(--card-dark-bg);
+        color: var(--text-light);
+        border-color: var(--border-dark);
+      }
+
+      /* Style for member cards */
+      .team-member .card {
+        padding: 20px 10px;
+        text-align: center;
+      }
+
+      .team-member .card-title {
+        margin-top: 15px;
+      }
+
+      /* Style for footer */
+      footer {
+        background-color: var(--secondary-color);
+        color: var(--text-light);
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 3rem;
+      }
+
+      .dark-mode footer {
+        background-color: var(--navbar-dark);
+      }
+
+      /* Style for buttons */
+      .btn-primary {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        padding: 10px 25px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+
+      .btn-primary:hover {
+        background-color: #1a5c9a;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-outline-primary {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+      }
+
+      .btn-outline-primary:hover {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .dark-mode .btn-outline-primary {
+        border-color: #5dade2;
+        color: #5dade2;
+      }
+
+      .dark-mode .btn-outline-primary:hover {
+        background-color: #5dade2;
+        color: var(--dark-bg);
+      }
+
+      /* Style for links */
+      .document-link {
+        display: block;
+        padding: 12px;
+        border-radius: 8px;
+        transition: all 0.3s;
+        color: var(--link-light);
+        text-decoration: none;
+      }
+
+      .document-link:hover {
+        background-color: rgba(52, 152, 219, 0.1);
+        transform: translateX(5px);
+      }
+
+      a {
+        color: var(--link-light);
+        transition: color var(--transition-speed);
+      }
+
+      a:hover {
+        color: var(--link-hover-light);
+      }
+
+      .dark-mode .document-link {
+        color: var(--link-dark);
+      }
+
+      .dark-mode .document-link:hover {
+        background-color: rgba(110, 168, 254, 0.1);
+      }
+
+      .dark-mode a {
+        color: white;
+      }
+
+      .dark-mode a:hover {
+        color: var(--link-hover-dark);
+      }
+
+      /* Style for back-to-top button */
+      .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s;
+        text-decoration: none;
+      }
+
+      .back-to-top.visible {
+        opacity: 1;
+      }
+
+      .back-to-top:hover {
+        background-color: #1a5c9a;
+      }
+
+      /* Style for dark/light mode button */
+      #modeSelector {
+        padding: 8px 16px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+        background-color: var(--card-light-bg);
+        color: var(--text-dark);
+        border: 1px solid #ccc;
+      }
+
+      #modeSelector img {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+
+      .dark-mode #modeSelector {
+        background-color: var(--card-dark-bg);
+        color: var(--text-light);
+        border-color: var(--border-dark);
+      }
+
+  
+      .fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Style for logo */
+      .logo-container {
+        margin: 20px auto;
+        max-width: 450px;
+        transition: transform 0.5s;
+      }
+
+      .logo-container:hover {
+        transform: scale(1.05);
+      }
+
+      /* Accesibility */
+      a:focus, button:focus, .nav-link:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 2px;
+      }
+
+      .dark-mode a:focus, .dark-mode button:focus, .dark-mode .nav-link:focus {
+        outline: 2px solid #5dade2;
+      }
+
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--primary-color);
+        color: white;
+        padding: 8px;
+        z-index: 100;
+        transition: top 0.3s;
+      }
+
+      .skip-link:focus {
+        top: 0;
+      }
+    </style>
+  
+    <title>SWEvenTeam17 - Ingegneria del Software</title>
+  </head>
+
+  <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
+    <!-- Skip to content link for keyboard users -->
+    <a href="#home" class="skip-link">Salta al contenuto principale</a>
+    
+    <!--NAVBAR-->
+    <header>
+      <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow-sm">
+        <div class="container">
+          <a class="navbar-brand" href="#">SWEvenTeam17</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#candidatura">Candidatura</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#rtb">RTB</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#pb">PB</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#diap">Diapositive</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#chiSiamo">Chi siamo</a>
+              </li>
+            </ul>
+            <button id="modeSelector" class="btn" aria-label="Cambia modalità colore">
+              <img id="modeIcon" src="./images/darkMode.svg" alt="Icona modalità">
+              <span id="modeText"></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!--INTRODUZIONE-->
+    <section id="home" class="hero-section">
+      <div class="container text-center">
+        <div class="logo-container fade-in">
+          <img class="img-fluid" src="./images/logo.webp" height="300" width="450" alt="SWEvenTeam17 logo">
+        </div>
+        <h1 class="fade-in">Progetto di Ingegneria del Software</h1>
+        <p class="fade-in">
+          Questo sito raccoglie tutte le risorse del progetto svolto dal gruppo SWEvenTeam17 per il corso di Ingegneria
+          del Software 2024-2025 dell'Università di Padova.
+        </p>
+      </div>
+    </section>
+
+    <!--CANDIDATURA-->
+    <section id="candidatura" class="container">
+      <h2 class="section-title">Candidatura</h2>
+      <div class="text-center mb-4">
+        <a href="./pdf/1-Candidatura/Lettera_Presentazione.pdf" class="btn btn-primary">
+          Lettera di presentazione
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#candidatura">Candidatura</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#glossario">Glossario</a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="#chiSiamo">Chi siamo</a>
-            </li>
+      </div>
+      
+      <!--DOCUMENTI INTERNI-->
+      <div class="row justify-content-center g-4">
+        <div class="col-lg-5 col-md-6 col-12">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="card-title text-center">Documenti interni</h3>
+              <ul class="list-group list-group-flush text-center">
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="./pdf/1-Candidatura/Verbali/Interni/Verbale_21-10-2024_v1.0.pdf">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 21-10-2024
+                  </a>
+                </li>
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="./pdf/1-Candidatura/Verbali/Interni/Verbale_25-10-2024_v1.0.pdf">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 25-10-2024
+                  </a>
+                </li>
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="./pdf/1-Candidatura/Verbali/Interni/Verbale_31-10-2024_v1.0.pdf">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 31-10-2024
+                  </a>
+                </li>
+              
+              </ul>
+              <div class="text-center mt-3">
+                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali/Interni" 
+                  class="btn btn-outline-primary btn-sm">
+                  Tutti i documenti su GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!--DOCUMENTI ESTERNI-->
+        <div class="col-lg-5 col-md-6 col-12">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="card-title text-center">Documenti esterni</h3>
+              <ul class="list-group list-group-flush text-center">
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="./pdf/1-Candidatura/Verbali/Esterni/Verbale_25-10-2024_v1.0.pdf">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 25-10-2024
+                  </a>
+                </li>
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="./pdf/1-Candidatura/Verbali/Esterni/Verbale_29-10-2024_v1.0.pdf">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 29-10-2024
+                  </a>
+                </li>
+              
+              </ul>
+              <div class="text-center mt-3">
+                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali/Esterni" 
+                  class="btn btn-outline-primary btn-sm">
+                  Tutti i documenti su GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          </ul>
-          <a id="modeSelector" class="btn btn-light"><img src="images/darkMode.svg" alt="Change color theme"></a>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <div class="container text-center">
-    <img class="img-fluid" src="/images/logo.webp" height="300" width="450" alt="SWEvenTeam17 logo">
-    <h1 class="fs-4">
-      Questo sito raccoglie tutte le risorse del progetto svolto dal gruppo SWEvenTeam17 per il corso di Ingegneria
-      del Software 2024-2025 dell'Università di Padova.
-    </h1>
-  </div>
-
-  <div class="container-fluid mt-5 text-center" id="candidatura">
-    <h2>Candidatura</h2>
-    <a style="text-decoration: none;" href="/pdf/1-Candidatura/Lettera_Presentazione.pdf">Lettera di presentazione</a>
-    <div class="row justify-content-center mt-5 g-4">
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="card text-center h-100 ms-3 me-3">
-          <div class="card-body">
-            <a class="card-title border-bottom" style="text-decoration: none; font-weight: bold;"
-              href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali/Interni">Documenti
-              interni
-            </a>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><a style="text-decoration: none;"
-                  href="/pdf/1-Candidatura/Verbali/Interni/Verbale_21-10-2024_v1.0.pdf">Verbale 21-10-2024</a></li>
-              <li class="list-group-item"><a style="text-decoration: none;"
-                  href="/pdf/1-Candidatura/Verbali/Interni/Verbale_25-10-2024_v1.0.pdf">Verbale 25-10-2024</a></li>
-              <li class="list-group-item"><a style="text-decoration: none;"
-                  href="/pdf/1-Candidatura/Verbali/Interni/Verbale_31-10-2024_v1.0.pdf">Verbale 31-10-2024</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="card text-center h-100 ms-3 me-3">
-          <div class="card-body">
-            <a class="card-title border-bottom" style="text-decoration: none; font-weight: bold;"
-              href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali/Esterni">Documenti
-              esterni
-            </a>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><a style="text-decoration: none;"
-                  href="/pdf/1-Candidatura/Verbali/Esterni/Verbale_25-10-2024_v1.0.pdf">Verbale 25-10-2024</a></li>
-              <li class="list-group-item"><a style="text-decoration: none;"
-                  href="/pdf/1-Candidatura/Verbali/Esterni/Verbale_29-10-2024_v1.0.pdf">Verbale 29-10-2024</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-   <div class="container text-center mt-4" id="glossario">
-    <h2>Glossario</h2>
-    <p>Consulta il glossario per una migliore comprensione dei termini.</p>
-    <a style="text-decoration: none;" href="glossario.html">Vai al Glossario</a>
-  </div>
-  <div class="container-fluid text-center pt-5" id="chiSiamo">
-    <h2>Chi siamo</h2>
-    <div class="row pt-4 pb-3 ps-4 pe-4">
-      <div class="col">
-        <div class="card border-0 text-center">
-          <div class="card-body">
-            <div class="card-title">
-              <strong>Matteo Mazzotti</strong>
-            </div>
-            <p class="card-text">
-              <strong>Email: </strong><a style="text-decoration: none;"
-                href="mailto:matteo.mazzotti@studenti.unipd.it">matteo.mazzotti@studenti.unipd.it</a>
-            </p>
-            <p class="card-text">
-              <strong>GitHub: </strong><a style="text-decoration: none;"
-                href="https://github.com/MatteoMazzotti0">MatteoMazzotti0</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card border-0 text-center">
-          <div class="card-body">
-            <div class="card-title">
-              <strong>Alessio Turetta</strong>
-            </div>
-            <p class="card-text">
-              <strong>Email: </strong><a style="text-decoration: none;"
-                href="mailto:alessio.turetta.1@studenti.unipd.it">alessio.turetta.1@studenti.unipd.it</a>
-            </p>
-            <p class="card-text">
-              <strong>GitHub: </strong><a style="text-decoration: none;" href="https://github.com/Gyarik">Gyarik</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card border-0 text-center">
-          <div class="card-body">
-            <div class="card-title">
-              <strong>Valentina Schivo</strong>
-            </div>
-            <p class="card-text">
-              <strong>Email: </strong><a style="text-decoration: none;"
-                href="mailto:valentina.schivo@studenti.unipd.it">valentina.schivo@studenti.unipd.it</a>
-            </p>
-            <p class="card-text">
-              <strong>GitHub: </strong><a style="text-decoration: none;"
-                href="https://github.com/vschivo13">vschivo13</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card border-0 text-center">
-          <div class="card-body">
-            <div class="card-title">
-              <strong>Alessio Barraco</strong>
-            </div>
-            <p class="card-text">
-              <strong>Email: </strong><a style="text-decoration: none;"
-                href="mailto:alessio.barraco@studenti.unipd.it">alessio.barraco@studenti.unipd.it</a>
-            </p>
-            <p class="card-text">
-              <strong>GitHub: </strong><a style="text-decoration: none;"
-                href="https://github.com/alessiobarraco">alessiobarraco</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row mb-3 ps-5 pe-5">
-      <div class="col">
-        <div class="card border-0 text-center">
-          <div class="card-body">
-            <div class="card-title">
-              <strong>Alessandro Damiani</strong>
-            </div>
-            <p class="card-text">
-              <strong>Email: </strong><a style="text-decoration: none;"
-                href="mailto:alessandro.damiani@studenti.unipd.it">alessandro.damiani@studenti.unipd.it</a>
-            </p>
-            <p class="card-text">
-              <strong>GitHub: </strong><a style="text-decoration: none;" href="https://github.com/nomeale">nomeale</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card border-0 text-center">
-          <div class="card-body">
-            <div class="card-title">
-              <strong>Yuri Lunardon</strong>
-            </div>
-            <p class="card-text">
-              <strong>Email: </strong><a style="text-decoration: none;"
-                href="mailto:yuri.lunardon@studenti.unipd.it">yuri.lunardon@studenti.unipd.it</a>
-            </p>
-            <p class="card-text">
-              <strong>GitHub: </strong><a style="text-decoration: none;"
-                href="https://github.com/yurilunardon">yurilunardon</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card border-0 text-center">
-          <div class="card-body">
-            <div class="card-title">
-              <strong>Alba Hui Larrosa Serrano</strong>
-            </div>
-            <p class="card-text">
-              <strong>Email: </strong><a style="text-decoration: none;"
-                href="mailto:albahui.larrosaserrano@studenti.unipd.it">albahui.larrosaserrano@studenti.unipd.it</a>
-            </p>
-            <p class="card-text">
-              <strong>GitHub: </strong><a style="text-decoration: none;" href="https://github.com/Albahui">Albahui</a>
-            </p>
-          </div>
-        </div>
+    <!--RTB-->
+    <section id="rtb" class="container">
+      <h2 class="section-title">RTB</h2>
+      <p class="text-center mb-4">Consulta il glossario per una migliore comprensione dei termini tecnici utilizzati nel progetto.</p>
+      <div class="text-center mb-4">
+        <a href="./glossario - copia.html" class="btn btn-primary" style="width: 220px;">
+          Vai al Glossario
+        </a>
       </div>
 
-    </div>
-  </div>
-  <footer class="d-flex flex-wrap justify-content-center align-items-center py-3 my-4 border-top">
-    <p class=" text-body-secondary">© 2024 SWEvenTeam17</p>
-  </footer>
-</body>
+      <!--DOCUMENTI INTERNI-->
+      <div class="row justify-content-center g-4">
+        <div class="col-lg-5 col-md-6 col-12">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="card-title text-center">Documenti interni</h3>
+              <ul class="list-group list-group-flush text-center">
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 1
+                  </a>
+                </li>
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 2
+                  </a>
+                </li>
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 3
+                  </a>
+                </li>
+              
+              </ul>
+              <div class="text-center mt-3">
+                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali/Interni" 
+                  class="btn btn-outline-primary btn-sm">
+                  Tutti i documenti su GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!--DOCUMENTI ESTERNI-->
+        <div class="col-lg-5 col-md-6 col-12">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="card-title text-center">Documenti esterni</h3>
+              <ul class="list-group list-group-flush text-center">
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 1
+                  </a>
+                </li>
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 2
+                  </a>
+                </li>
+              
+              </ul>
+              <div class="text-center mt-3">
+                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali/Esterni" 
+                  class="btn btn-outline-primary btn-sm">
+                  Tutti i documenti su GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--PB-->
+    <section id="pb" class="container">
+      <h2 class="section-title">PB</h2>
+      <!--DOCUMENTI INTERNI-->
+      <div class="row justify-content-center g-4">
+        <div class="col-lg-5 col-md-6 col-12">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="card-title text-center">Documenti interni</h3>
+              <ul class="list-group list-group-flush text-center">
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 1
+                  </a>
+                </li>
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 2
+                  </a>
+                </li>
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 3
+                  </a>
+                </li>
+              
+              </ul>
+              <div class="text-center mt-3">
+                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali/Interni" 
+                  class="btn btn-outline-primary btn-sm">
+                  Tutti i documenti su GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!--DOCUMENTI ESTERNI-->
+        <div class="col-lg-5 col-md-6 col-12">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="card-title text-center">Documenti esterni</h3>
+              <ul class="list-group list-group-flush text-center">
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 1
+                  </a>
+                </li>
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 2
+                  </a>
+                </li>
+              
+              </ul>
+              <div class="text-center mt-3">
+                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali/Esterni" 
+                  class="btn btn-outline-primary btn-sm">
+                  Tutti i documenti su GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--DIAPOSITIVE-->
+    <section id="diap" class="container">
+      <h2 class="section-title">Diapositive</h2>
+      <div class="row justify-content-center g-4">
+        <div class="col-lg-10 col-md-12">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="row">
+
+                <div class="col-md-4 col-12">
+                  <ul class="list-group list-group-flush text-center">
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 1
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 2
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 3
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="col-md-4 col-12">
+                  <ul class="list-group list-group-flush text-center">
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 4
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 5
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 6
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="col-md-4 col-12">
+                  <ul class="list-group list-group-flush text-center">
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 7
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 8
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 9
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="text-center mt-3">
+                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali/Interni" 
+                  class="btn btn-outline-primary btn-sm">
+                  Tutti i documenti su GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--CONTATTI-->
+    <section id="chiSiamo" class="container">
+      <h2 class="section-title">Chi siamo</h2>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-4 col-sm-6 team-member">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Matteo Mazzotti</h4>
+              <p class="card-text mb-1">
+                <a href="mailto:matteo.mazzotti@studenti.unipd.it">matteo.mazzotti@studenti.unipd.it</a>
+              </p>
+              <p class="card-text">
+                <a href="https://github.com/MatteoMazzotti0" target="_blank">GitHub: MatteoMazzotti0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-4 col-sm-6 team-member">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Alessio Turetta</h4>
+              <p class="card-text mb-1">
+                <a href="mailto:alessio.turetta.1@studenti.unipd.it">alessio.turetta.1@studenti.unipd.it</a>
+              </p>
+              <p class="card-text">
+                <a href="https://github.com/Gyarik" target="_blank">GitHub: Gyarik</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-4 col-sm-6 team-member">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Valentina Schivo</h4>
+              <p class="card-text mb-1">
+                <a href="mailto:valentina.schivo@studenti.unipd.it">valentina.schivo@studenti.unipd.it</a>
+              </p>
+              <p class="card-text">
+                <a href="https://github.com/vschivo13" target="_blank">GitHub: vschivo13</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-4 col-sm-6 team-member">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Alessio Barraco</h4>
+              <p class="card-text mb-1">
+                <a href="mailto:alessio.barraco@studenti.unipd.it">alessio.barraco@studenti.unipd.it</a>
+              </p>
+              <p class="card-text">
+                <a href="https://github.com/alessiobarraco" target="_blank">GitHub: alessiobarraco</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-4 col-sm-6 team-member">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Alessandro Damiani</h4>
+              <p class="card-text mb-1">
+                <a href="mailto:alessandro.damiani@studenti.unipd.it">alessandro.damiani@studenti.unipd.it</a>
+              </p>
+              <p class="card-text">
+                <a href="https://github.com/nomeale" target="_blank">GitHub: nomeale</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-4 col-sm-6 team-member">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Yuri Lunardon</h4>
+              <p class="card-text mb-1">
+                <a href="mailto:yuri.lunardon@studenti.unipd.it">yuri.lunardon@studenti.unipd.it</a>
+              </p>
+              <p class="card-text">
+                <a href="https://github.com/yurilunardon" target="_blank">GitHub: yurilunardon</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-4 col-sm-6 team-member">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Alba Hui Larrosa Serrano</h4>
+              <p class="card-text mb-1">
+                <a href="mailto:albahui.larrosaserrano@studenti.unipd.it">albahui.larrosaserrano@studenti.unipd.it</a>
+              </p>
+              <p class="card-text">
+                <a href="https://github.com/Albahui" target="_blank">GitHub: Albahui</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p class="mb-0">© 2024 SWEvenTeam17 - Università di Padova</p>
+        <small>Progetto di Ingegneria del Software 2024-2025</small>
+      </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="back-to-top" aria-label="Torna in cima">↑</a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+    <script src="js/jquery.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Dark/light mode toggle
+        const modeSelector = document.getElementById('modeSelector');
+        const body = document.body;
+        const modeIcon = document.getElementById('modeIcon');
+        const modeText = document.getElementById('modeText');
+        
+        function updateModeUI() {
+          if (body.classList.contains('dark-mode')) {
+            modeIcon.src = 'images/lightMode.svg'; 
+            modeIcon.alt = 'Passa alla modalità chiara';
+          } else {
+            modeIcon.src = 'images/darkMode.svg';
+            modeIcon.alt = 'Passa alla modalità scura';
+          }
+        }
+        
+        modeSelector.addEventListener('click', function() {
+          body.classList.toggle('dark-mode');
+          
+          // Save preference to localStorage
+          if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+          } else {
+            localStorage.setItem('darkMode', 'disabled');
+          }
+          
+          updateModeUI();
+          
+          // Announce mode change for screen readers
+          const announcement = document.createElement('div');
+          announcement.setAttribute('aria-live', 'polite');
+          announcement.setAttribute('role', 'status');
+          announcement.classList.add('visually-hidden');
+          announcement.textContent = body.classList.contains('dark-mode') ? 
+            'Modalità scura attivata' : 'Modalità chiara attivata';
+          document.body.appendChild(announcement);
+          
+          // Remove the announcement after it's been read
+          setTimeout(() => {
+            document.body.removeChild(announcement);
+          }, 1000);
+        });
+        
+        // Check saved preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+          body.classList.add('dark-mode');
+          updateModeUI();
+        }
+        
+        // Honor user's system preference if no saved preference
+        if (localStorage.getItem('darkMode') === null) {
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            body.classList.add('dark-mode');
+            updateModeUI();
+          }
+        }
+        
+        // Listen for system preference changes
+        if (window.matchMedia) {
+          window.matchMedia('(prefers-color-scheme: dark)')
+            .addEventListener('change', event => {
+              if (localStorage.getItem('darkMode') === null) { // Only if user hasn't set preference
+                if (event.matches) {
+                  body.classList.add('dark-mode');
+                } else {
+                  body.classList.remove('dark-mode');
+                }
+                updateModeUI();
+              }
+            });
+        }
+        
+        // Back to top button
+        const backToTop = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 300) {
+            backToTop.classList.add('visible');
+          } else {
+            backToTop.classList.remove('visible');
+          }
+        });
+        
+        backToTop.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+        
+        // Smooth navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+              // Set focus to the target element for better accessibility
+              targetElement.setAttribute('tabindex', '-1');
+              targetElement.focus();
+            }
+          });
+        });
+        
+        // Activate navigation links on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', function() {
+          let current = '';
+          
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.clientHeight;
+            
+            if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+              current = section.getAttribute('id');
+            }
+          });
+          
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+              link.classList.add('active');
+            }
+          });
+        });
+        
+        // Add keyboard navigation for tab navigation
+        document.addEventListener('keydown', function(e) {
+          // If Tab key is pressed and menu is collapsed on mobile
+          if (e.key === 'Tab' && window.innerWidth < 992) {
+            const toggler = document.querySelector('.navbar-toggler');
+            const collapse = document.querySelector('.navbar-collapse');
+            
+            // If a nav link has focus and menu is collapsed, expand it
+            if (document.activeElement.classList.contains('nav-link') && collapse.classList.contains('collapse')) {
+              toggler.click();
+            }
+          }
+        });
+      });
+
+    </script>
+  
+  </body>
 
 </html>
