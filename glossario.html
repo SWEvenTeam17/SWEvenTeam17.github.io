@@ -55,10 +55,6 @@
                 padding-top: 70px;
             }
 
-            :target {
-                scroll-margin-top: 100px;
-            }
-
             body.dark-mode {
                 background-color: var(--dark-bg);
                 color: var(--text-light);
@@ -1623,6 +1619,23 @@
                 }
               });
             });
+
+            document.addEventListener("DOMContentLoaded", function() {
+                if (window.location.hash) {
+                    let element = document.querySelector(window.location.hash);
+                    if (element) {
+                        setTimeout(() => {
+                            let offset = 100; 
+                            let elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                            window.scrollTo({
+                                top: elementPosition - offset,
+                                behavior: "smooth"
+                            });
+                        }, 100);
+                    }
+                }
+            });
+            
           </script>
     </body>
         
