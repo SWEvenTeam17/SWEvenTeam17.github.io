@@ -106,6 +106,7 @@
         justify-content: center;
       }
 
+
       .section-title {
         text-align: center;
         margin-bottom: 3rem;
@@ -151,6 +152,10 @@
         font-size: 1.2rem;
         max-width: 700px;
         margin: 0 auto;
+      }
+
+      #home, #glossario, #pb, #rtb, #candidatura, #diap, #chiSiamo {
+        scroll-margin-top: 75px;
       }
 
       /* Style for cards */
@@ -422,17 +427,21 @@
                 <a class="nav-link" href="#glossario">Glossario</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#candidatura">Candidatura</a>
+                <a class="nav-link" href="#pb">PB</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#rtb">RTB</a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#pb">PB</a>
+              <li class="nav-item">
+                <a class="nav-link" href="#candidatura">Candidatura</a>
               </li>
+              
+              <!--
               <li class="nav-item">
                 <a class="nav-link" href="#diap">Diapositive</a>
-              </li> -->
+              </li>
+              -->
+              
               <li class="nav-item">
                 <a class="nav-link" href="#chiSiamo">Chi siamo</a>
               </li>
@@ -472,40 +481,70 @@
           </a>
         </div>
     </section>
-        
-
-    <!--CANDIDATURA-->
-    <section class="container">
-      <h2 id="candidatura" class="section-title">Candidatura</h2>
-      <div class="text-center mb-4">
-        <a href="./pdf/1-Candidatura/Lettera_Presentazione.pdf" class="btn btn-primary">
-          Lettera di presentazione
-        </a>
-      </div>
-      
+    
+    
+    <!--PB-->
+    <section id="pb" class="container">
+      <h2 class="section-title">PB</h2>
       <!--DOCUMENTI INTERNI-->
       <div class="row justify-content-center g-4">
         <div class="col-lg-5 col-md-6 col-12">
           <div class="card h-100">
             <div class="card-body">
-              <h3 class="card-title text-center">Documenti</h3>
+              <h3 class="card-title text-center">Documenti interni</h3>
               <ul class="list-group list-group-flush text-center">
                 
                 <li class="list-group-item">
-                  <a class="document-link" href="./pdf/1-Candidatura/Dichiarazione_Impegni_v1.0.pdf">
-                    <i class="bi bi-file-earmark-text"></i> Dichiarazione Impegni v1.0
+                  <a class="document-link" href="">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 1
                   </a>
                 </li>
                 
                 <li class="list-group-item">
-                  <a class="document-link" href="./pdf/1-Candidatura/Studio_Capitolati_v1.0.pdf">
-                    <i class="bi bi-file-earmark-text"></i> Studio Capitolati v1.0
+                  <a class="document-link" href="">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 2
+                  </a>
+                </li>
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 3
                   </a>
                 </li>
               
               </ul>
               <div class="text-center mt-3">
-                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura" 
+                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali/Interni" 
+                  class="btn btn-outline-primary btn-sm">
+                  Tutti i documenti su GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!--DOCUMENTI ESTERNI-->
+        <div class="col-lg-5 col-md-6 col-12">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="card-title text-center">Documenti esterni</h3>
+              <ul class="list-group list-group-flush text-center">
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 1
+                  </a>
+                </li>
+                
+                <li class="list-group-item">
+                  <a class="document-link" href="">
+                    <i class="bi bi-file-earmark-text"></i> Verbale 2
+                  </a>
+                </li>
+              
+              </ul>
+              <div class="text-center mt-3">
+                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali/Esterni" 
                   class="btn btn-outline-primary btn-sm">
                   Tutti i documenti su GitHub
                 </a>
@@ -515,57 +554,78 @@
         </div>
       </div>
 
-      <!--VERBALI-->
+      <!--DIAPOSITIVE-->
       <div class="row justify-content-center g-4 mt-4">
         <div class="col-lg-10 col-md-12">
-          <div class="card h-100 shadow-sm">
+          <div class="card h-100">
             <div class="card-body p-4">
-              <h3 class="card-title text-center mb-4">Verbali</h3>
-              
-              <div class="row justify-content-center">
-                <!--INTERNI-->
-                <div class="col-md-6 col-12 mb-3 mb-md-0 text-center">
-                  <h4 class="card-title mb-4">Interni</h4>
-                  <ul class="list-group list-group-flush">
-                    </li>
-                    <li class="list-group-item py-3">
-                      <a class="document-link text-decoration-none" href="./pdf/1-Candidatura/Verbali/Interni/Verbale_31-10-2024_v1.0.pdf">
-                        <i class="bi bi-file-earmark-text me-2"></i> Verbale 2024-10-31 v1.0
+              <h3 class="card-title text-center mb-4">Diapositive</h3>
+              <div class="row">
+
+                <div class="col-md-4 col-12">
+                  <ul class="list-group list-group-flush text-center">
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 1
                       </a>
                     </li>
-                    <li class="list-group-item py-3">
-                      <a class="document-link text-decoration-none" href="./pdf/1-Candidatura/Verbali/Interni/Verbale_25-10-2024_v1.0.pdf">
-                        <i class="bi bi-file-earmark-text me-2"></i> Verbale 2024-10-25 v1.0
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 2
                       </a>
                     </li>
-                    <li class="list-group-item py-3">
-                      <a class="document-link text-decoration-none" href="./pdf/1-Candidatura/Verbali/Interni/Verbale_21-10-2024_v1.0.pdf">
-                        <i class="bi bi-file-earmark-text me-2"></i> Verbale 2024-10-21 v1.0
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 3
                       </a>
                     </li>
                   </ul>
                 </div>
-                <!--ESTERNI-->
-                <div class="col-md-6 col-12 mb-3 mb-md-0 text-center">
-                  <h4 class="card-title mb-4">Esterni</h4>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item py-3">
-                      <a class="document-link text-decoration-none" href="./pdf/1-Candidatura/Verbali/Esterni/Verbale_29-10-2024_v1.0.pdf">
-                        <i class="bi bi-file-earmark-text me-2"></i> Verbale 2024-10-29 v0.1
+                
+                <div class="col-md-4 col-12">
+                  <ul class="list-group list-group-flush text-center">
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 4
                       </a>
                     </li>
-                    <li class="list-group-item py-3">
-                      <a class="document-link text-decoration-none" href="./pdf/1-Candidatura/Verbali/Esterni/Verbale_25-10-2024_v1.0.pdf">
-                        <i class="bi bi-file-earmark-text me-2"></i> Verbale 2024-10-25 v1.0
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 5
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 6
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="col-md-4 col-12">
+                  <ul class="list-group list-group-flush text-center">
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 7
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 8
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a class="document-link" href="">
+                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 9
                       </a>
                     </li>
                   </ul>
                 </div>
               </div>
               
-              <div class="text-center mt-4">
-                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali" 
-                  class="btn btn-outline-primary btn-sm px-4 py-2">
+              <div class="text-center mt-3">
+                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali/Interni" 
+                  class="btn btn-outline-primary btn-sm">
                   Tutti i documenti su GitHub
                 </a>
               </div>
@@ -574,7 +634,6 @@
         </div>
       </div>
     </section>
-
 
     <!--RTB-->
     <section class="container">
@@ -739,6 +798,7 @@
                     </li>
                   </ul>
                 </div>
+                
                 <!--ESTERNI-->
                 <div class="col-md-6 col-12 mb-3 mb-md-0 text-center">
                   <h4 class="card-title mb-4">Esterni</h4>
@@ -780,71 +840,38 @@
     </section>
 
 
-    <!--PB-->
-    <!--
-    <section id="pb" class="container">
-      <h2 class="section-title">PB</h2> -->
+    <!--CANDIDATURA-->
+    <section class="container">
+      <h2 id="candidatura" class="section-title">Candidatura</h2>
+      <div class="text-center mb-4">
+        <a href="./pdf/1-Candidatura/Lettera_Presentazione.pdf" class="btn btn-primary">
+          Lettera di presentazione
+        </a>
+      </div>
+      
       <!--DOCUMENTI INTERNI-->
-      <!--
       <div class="row justify-content-center g-4">
         <div class="col-lg-5 col-md-6 col-12">
           <div class="card h-100">
             <div class="card-body">
-              <h3 class="card-title text-center">Documenti interni</h3>
+              <h3 class="card-title text-center">Documenti</h3>
               <ul class="list-group list-group-flush text-center">
                 
                 <li class="list-group-item">
-                  <a class="document-link" href="">
-                    <i class="bi bi-file-earmark-text"></i> Verbale 1
+                  <a class="document-link" href="./pdf/1-Candidatura/Dichiarazione_Impegni_v1.0.pdf">
+                    <i class="bi bi-file-earmark-text"></i> Dichiarazione Impegni v1.0
                   </a>
                 </li>
                 
                 <li class="list-group-item">
-                  <a class="document-link" href="">
-                    <i class="bi bi-file-earmark-text"></i> Verbale 2
-                  </a>
-                </li>
-                
-                <li class="list-group-item">
-                  <a class="document-link" href="">
-                    <i class="bi bi-file-earmark-text"></i> Verbale 3
+                  <a class="document-link" href="./pdf/1-Candidatura/Studio_Capitolati_v1.0.pdf">
+                    <i class="bi bi-file-earmark-text"></i> Studio Capitolati v1.0
                   </a>
                 </li>
               
               </ul>
               <div class="text-center mt-3">
-                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali/Interni" 
-                  class="btn btn-outline-primary btn-sm">
-                  Tutti i documenti su GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      -->
-        
-        <!--DOCUMENTI ESTERNI--> <!--
-        <div class="col-lg-5 col-md-6 col-12">
-          <div class="card h-100">
-            <div class="card-body">
-              <h3 class="card-title text-center">Documenti esterni</h3>
-              <ul class="list-group list-group-flush text-center">
-                
-                <li class="list-group-item">
-                  <a class="document-link" href="">
-                    <i class="bi bi-file-earmark-text"></i> Verbale 1
-                  </a>
-                </li>
-                
-                <li class="list-group-item">
-                  <a class="document-link" href="">
-                    <i class="bi bi-file-earmark-text"></i> Verbale 2
-                  </a>
-                </li>
-              
-              </ul>
-              <div class="text-center mt-3">
-                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali/Esterni" 
+                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura" 
                   class="btn btn-outline-primary btn-sm">
                   Tutti i documenti su GitHub
                 </a>
@@ -853,82 +880,58 @@
           </div>
         </div>
       </div>
-    </section>-->
 
-    <!--DIAPOSITIVE-->
-    <!--
-    <section id="diap" class="container">
-      <h2 class="section-title">Diapositive</h2>
-      <div class="row justify-content-center g-4">
+      <!--VERBALI-->
+      <div class="row justify-content-center g-4 mt-4">
         <div class="col-lg-10 col-md-12">
-          <div class="card h-100">
-            <div class="card-body">
-              <div class="row">
-
-                <div class="col-md-4 col-12">
-                  <ul class="list-group list-group-flush text-center">
-                    <li class="list-group-item">
-                      <a class="document-link" href="">
-                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 1
+          <div class="card h-100 shadow-sm">
+            <div class="card-body p-4">
+              <h3 class="card-title text-center mb-4">Verbali</h3>
+              
+              <div class="row justify-content-center">
+                <!--INTERNI-->
+                <div class="col-md-6 col-12 mb-3 mb-md-0 text-center">
+                  <h4 class="card-title mb-4">Interni</h4>
+                  <ul class="list-group list-group-flush">
+                    </li>
+                    <li class="list-group-item py-3">
+                      <a class="document-link text-decoration-none" href="./pdf/1-Candidatura/Verbali/Interni/Verbale_31-10-2024_v1.0.pdf">
+                        <i class="bi bi-file-earmark-text me-2"></i> Verbale 2024-10-31 v1.0
                       </a>
                     </li>
-                    <li class="list-group-item">
-                      <a class="document-link" href="">
-                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 2
+                    <li class="list-group-item py-3">
+                      <a class="document-link text-decoration-none" href="./pdf/1-Candidatura/Verbali/Interni/Verbale_25-10-2024_v1.0.pdf">
+                        <i class="bi bi-file-earmark-text me-2"></i> Verbale 2024-10-25 v1.0
                       </a>
                     </li>
-                    <li class="list-group-item">
-                      <a class="document-link" href="">
-                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 3
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div class="col-md-4 col-12">
-                  <ul class="list-group list-group-flush text-center">
-                    <li class="list-group-item">
-                      <a class="document-link" href="">
-                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 4
-                      </a>
-                    </li>
-                    <li class="list-group-item">
-                      <a class="document-link" href="">
-                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 5
-                      </a>
-                    </li>
-                    <li class="list-group-item">
-                      <a class="document-link" href="">
-                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 6
+                    <li class="list-group-item py-3">
+                      <a class="document-link text-decoration-none" href="./pdf/1-Candidatura/Verbali/Interni/Verbale_21-10-2024_v1.0.pdf">
+                        <i class="bi bi-file-earmark-text me-2"></i> Verbale 2024-10-21 v1.0
                       </a>
                     </li>
                   </ul>
                 </div>
-                
-                <div class="col-md-4 col-12">
-                  <ul class="list-group list-group-flush text-center">
-                    <li class="list-group-item">
-                      <a class="document-link" href="">
-                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 7
+                <!--ESTERNI-->
+                <div class="col-md-6 col-12 mb-3 mb-md-0 text-center">
+                  <h4 class="card-title mb-4">Esterni</h4>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item py-3">
+                      <a class="document-link text-decoration-none" href="./pdf/1-Candidatura/Verbali/Esterni/Verbale_29-10-2024_v1.0.pdf">
+                        <i class="bi bi-file-earmark-text me-2"></i> Verbale 2024-10-29 v0.1
                       </a>
                     </li>
-                    <li class="list-group-item">
-                      <a class="document-link" href="">
-                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 8
-                      </a>
-                    </li>
-                    <li class="list-group-item">
-                      <a class="document-link" href="">
-                        <i class="bi bi-file-earmark-text"></i> Diario di bordo 9
+                    <li class="list-group-item py-3">
+                      <a class="document-link text-decoration-none" href="./pdf/1-Candidatura/Verbali/Esterni/Verbale_25-10-2024_v1.0.pdf">
+                        <i class="bi bi-file-earmark-text me-2"></i> Verbale 2024-10-25 v1.0
                       </a>
                     </li>
                   </ul>
                 </div>
               </div>
               
-              <div class="text-center mt-3">
-                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali/Interni" 
-                  class="btn btn-outline-primary btn-sm">
+              <div class="text-center mt-4">
+                <a href="https://github.com/SWEvenTeam17/documentazione/tree/master/1-Candidatura/Verbali" 
+                  class="btn btn-outline-primary btn-sm px-4 py-2">
                   Tutti i documenti su GitHub
                 </a>
               </div>
@@ -937,7 +940,8 @@
         </div>
       </div>
     </section>
-  -->
+
+
     <!--CONTATTI-->
     <section id="chiSiamo" class="container">
       <h2 class="section-title">Chi siamo</h2>
