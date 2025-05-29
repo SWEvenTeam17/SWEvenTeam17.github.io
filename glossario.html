@@ -634,6 +634,11 @@
                     componenti principali, dalle loro interazioni e dalle linee guida che ne governano il
                     design e l'evoluzione.</div>
                 </div>
+
+                <div class="term">
+                    <div class="term-title" id="architettura_di_deployment">● Architettura di deployment:</div>
+                    <div class="definition">Descrive come i vari componenti di un sistema software (come applicazioni, database, servizi, file statici) vengono distribuiti e messi in esecuzione su server, container o infrastrutture cloud. Include informazioni su dove risiedono fisicamente i moduli del sistema, come comunicano tra loro, quali risorse hardware e software utilizzano e come vengono gestiti aspetti come scalabilità, disponibilità e bilanciamento del carico. In pratica, rappresenta la mappa tecnica che traduce il progetto software in un sistema realmente operativo, pronto per servire gli utenti finali.</div>
+                </div>
                 
                 <div class="term">
                     <div class="term-title" id="artefatto">● Artefatto:</div>
@@ -643,6 +648,13 @@
                     durante lo sviluppo o la fase di build di un'applicazione software.</div>
                 </div>
                 
+                <div class="term">
+                    <div class="term-title" id="asgi">● ASGI:</div>
+                    <div class="definition">Acronimo di Asynchronous Server
+                         Gateway Interface, interfaccia standard per applicazioni web Python che permette la gestione di comunicazioni asincrone, come WebSocket, HTTP/2 e richieste HTTP asincrone. ASGI definisce il modo in cui server e framework Python comunicano, rendendo possibile eseguire applicazioni asincrone su server compatibili e integrando middleware,
+                         router e handler in un’architettura scalabile e moderna.</div>
+                </div>
+
                 <div class="term">
                     <div class="term-title" id="attività">● Attività:</div>
                     <div class="definition">Un'azione o un insieme di azioni specifiche che costituiscono un passo
@@ -699,7 +711,7 @@
                 </div>
 
                 <div class="term">
-                    <div class="term-title" id="branch">● Branch coverage:</div>
+                    <div class="term-title" id="branch_coverage">● Branch coverage:</div>
                     <div class="definition">Metrica di testing che misura la percentuale di rami decisionali
                         (true/false o altre alternative nei costrutti condizionali come if, case, for, while) che sono
                         stati eseguiti almeno una volta durante i test. Formula: (Numero di rami eseguiti/numero totale di rami)*100</div>
@@ -749,6 +761,11 @@
                     <div class="definition">Misura della quantità di codice che è stato testato. Maggiore è la
                     code coverage, più ampio è il numero di linee di codice che è stato testato.</div>
                 </div>
+
+                <div class="term">
+                    <div class="term-title" id="container">● Container:</div>
+                    <div class="definition">Un container è un’unità leggera e portabile che contiene tutto ciò che serve per eseguire un’applicazione: codice, librerie, dipendenze e configurazioni. Con Docker, i container permettono agli sviluppatori di impacchettare le applicazioni in ambienti isolati e coerenti, garantendo che funzionino allo stesso modo su qualsiasi sistema, indipendentemente dall’infrastruttura su cui vengono eseguiti.</div>
+                </div>
                 
                 <div class="term">
                     <div class="term-title" id="commit">● Commit:</div>
@@ -776,6 +793,14 @@
                     <div class="definition">Un'interfaccia che visualizza in tempo reale informazioni e metriche
                     chiave sullo stato di un sistema o progetto, facilitando il monitoraggio e la gestione.</div>
                 </div>
+                <div class="term">
+                    <div class="term-title" id="cypress">● Cypress:</div>
+                    <div class="definition">framework open source per il test end-to-end
+                         (E2E) delle applicazioni web. Permette agli sviluppatori e ai 
+                         tester di scrivere, eseguire e automatizzare test che simulano 
+                         l’interazione reale dell’utente con l’interfaccia grafica, verificando
+                         che il comportamento del sistema sia conforme alle aspettative</div>
+                </div>
             </div>
 
             <div class="letter-section">
@@ -787,6 +812,12 @@
                     dati in modo strutturato. I dati sono memorizzati in tabelle, che possono essere interrogate e
                     manipolate tramite linguaggi come SQL.</div>
                 </div>
+
+                <div class="term">
+                    <div class="term-title" id="daphne">● Daphne:</div>
+                    <div class="definition">Server HTTP, HTTP/2 e WebSocket progettato per eseguire applicazioni Python compatibili con l’interfaccia ASGI (Asynchronous Server Gateway Interface). Daphne funge da server frontend che riceve le richieste del client (browser o altri servizi) e le passa all’applicazione ASGI, coordinando la gestione asincrona degli eventi.</div>
+                </div>
+                
                 
                 <div class="term">
                     <div class="term-title" id="deployment">● Deployment:</div>
@@ -830,6 +861,9 @@
                     permettono di isolare l'applicazione e le sue dipendenze dal sistema operativo sottostante,
                     garantendo portabilità e consistenza tra ambienti di sviluppo, test e produzione. Docker
                     semplifica la gestione delle applicazioni scalabili e la gestione di microservizi.</div>
+                </div>
+                <div class="term-title" id="docker_compose">● Docker compose:</div>
+                    <div class="definition">Strumento che permette di definire e gestire applicazioni multi-container usando un file YAML. Con Compose puoi descrivere i servizi, le reti e i volumi necessari, e avviarli tutti insieme con un singolo comando, semplificando l’orchestrazione di ambienti complessi.</div>
                 </div>
             </div>
 
@@ -1089,6 +1123,11 @@
                     contenere tutte le informazioni utili sul lato tecnologico dell'applicazione, fornendo un quadro
                     completo della struttura e composizione del prodotto software.</div>
                 </div>
+
+                <div class="term">
+                    <div class="term-title" id="manutenibilità">● Manutenibilità:</div>
+                    <div class="definition">Capacità di un software o di un sistema informatico di essere facilmente modificato, corretto, aggiornato o migliorato nel tempo, senza introdurre errori o compromettere la stabilità complessiva. Codice manutenibile è solitamente chiaro, modulare, testabile, documentato e adattabile.</div>
+                </div>
                 
                 <div class="term">
                     <div class="term-title" id="manutenzione">● Manutenzione:</div>
@@ -1134,6 +1173,10 @@
                 <div class="term">
                     <div class="term-title" id="mysql">● MySQL:</div>
                     <div class="definition">Sistema di gestione di database relazionale (RDBMS) open-source, basato sul linguaggio SQL (Structured Query Language). MySQL è noto per essere scalabile, veloce e affidabile, e supporta molteplici utenti e accessi simultanei.</div>
+                </div>
+                <div class="term">
+                    <div class="term-title" id="monolite">● Monolite:</div>
+                    <div class="definition">Applicazione costruita come un unico blocco indivisibile, in cui tutte le funzionalità (interfaccia, logica di business, accesso ai dati) sono strettamente integrate e distribuite insieme. In questa architettura, l’intero sistema viene sviluppato, testato e rilasciato come un’unica unità, semplificando le fasi iniziali ma rendendo più complessa la scalabilità e la manutenzione man mano che il progetto cresce.</div>
                 </div>
             </div>
 
@@ -1253,7 +1296,7 @@
                 </div>
 
                 <div class="term">
-                    <div class="term-title" id="push">● Pytest:</div>
+                    <div class="term-title" id="pytest">● Pytest:</div>
                     <div class="definition">Framework di testing per Python che consente di scrivere test unitari, funzionali e integrati in modo semplice e conciso,
                         supportando anche funzionalità avanzate come l’uso di fixture, parametri di test, e plugin per l'estensione delle funzionalità.</div>
                 </div>
@@ -1305,6 +1348,10 @@
                     <div class="term-title" id="repository">● Repository:</div>
                     <div class="definition">Spazio di archiviazione digitale utilizzato per conservare e gestire i file di un progetto, in particolare nel contesto del controllo delle versioni del software.</div>
                 </div>
+                <div class="term">
+                    <div class="term-title" id="repository_layer">● Repository(layer):</div>
+                    <div class="definition">Nelle architetture multi layered, strato che si occupa dell’accesso ai dati, comunicando con il database o altre fonti. Nasconde i dettagli tecnici di persistenza e offre un’interfaccia semplice e pulita al service per leggere e scrivere dati.</div>
+                </div>
                 
                 <div class="term">
                     <div class="term-title" id="requirements_and_technology_baseline">● Requirements and Technology Baseline (RTB):</div>
@@ -1350,11 +1397,18 @@
 
             <div class="letter-section">
                 <h2 id="S">S</h2>
+                
+                <div class="term">
+                    <div class="term-title" id="service">● Service:</div>
+                    <div class="definition">Nelle architetture multi layered, livello dove vive la logica applicativa. Coordina operazioni complesse, applica le regole di business e gestisce le interazioni tra repository e altri componenti, mantenendo separata la logica dall’interfaccia e dall’accesso ai dati.</div>
+                </div>
 
                 <div class="term">
                     <div class="term-title" id="servizio">● Servizio:</div>
                     <div class="definition">Un Servizio si riferisce a una funzionalità o a un’opzione offerta da un sistema.</div>
                 </div>
+
+                
                 
                 <div class="term">
                     <div class="term-title" id="sistema">● Sistema:</div>
@@ -1381,7 +1435,7 @@
                     <div class="definition">Standard che definisce un quadro di riferimento per i processi del ciclo di vita del software, stabilendo attività e compiti necessari per l'acquisizione, lo sviluppo, il funzionamento, la manutenzione e la dismissione dei sistemi software.</div>
                 </div>
                 <div class="term">
-                    <div class="term-title" id="standard_ISO/IEC_12207:1995">● Statement coverage:</div>
+                    <div class="term-title" id="statement_coverage">● Statement coverage:</div>
                     <div class="definition">Metrica di testing che misura la percentuale di istruzioni eseguibili (o linee di codice) in un programma che vengono eseguite almeno una volta
                         durante l’esecuzione dei test. Formula: (Numero di istruzioni eseguite/numero di istruzioni eseguibili)*100. Questa è la coverage usata di default con il comando --cov di pytest.</div>
                 </div>
@@ -1402,27 +1456,27 @@
                 </div>
 
                 <div class="term">
-                    <div class="term-title" id="test">● Test di accettazione:</div>
+                    <div class="term-title" id="test_di_accettazione">● Test di accettazione:</div>
                     <div class="definition">Tipologia di test eseguita per verificare che il sistema soddisfi i requisiti e le aspettative concordate con il cliente o l’utente finale. 
                         Rappresenta l’ultima fase del processo di verifica, spesso eseguita in un ambiente realistico, e costituisce il criterio decisionale per l’approvazione del rilascio del software.
                     </div>
                 </div>
 
                 <div class="term">
-                    <div class="term-title" id="test">● Test di integrazione:</div>
+                    <div class="term-title" id="test_di_integrazione">● Test di integrazione:</div>
                     <div class="definition"Tipologia di test che verifica la corretta interazione tra più unità o componenti software una volta che esse sono state combinate, con l'obiettivo di accertarsi che i moduli,
                         collaborino correttamente tra loro nel produrre il comportamento atteso.
                     </div>
                 </div>
 
                 <div class="term">
-                    <div class="term-title" id="test">● Test di sistema:</div>
+                    <div class="term-title" id="test_di_sistema">● Test di sistema:</div>
                     <div class="definition">Tipologia di test che verifica il comportamento dell’intero sistema software come un’unica entità, assicurandosi che esso soddisfi i requisiti funzionali e non funzionali specificati. Si esegue in un ambiente il più possibile simile a quello di produzione e simula scenari end-to-end, come li affronterebbe un utente reale.
                     </div>
                 </div>
 
                 <div class="term">
-                    <div class="term-title" id="test">● Test di unità:</div>
+                    <div class="term-title" id="test_di_unità">● Test di unità:</div>
                     <div class="definition">Tipologia di test che verifica il comportamento corretto e isolato di una singola unità funzionale del software, tipicamente una funzione, un metodo o una classe, assicurandosi che produca l’output atteso per determinati input. L’isolamento avviene tramite varie tecniche come ad esempio il mocking e garantisce la separazione da dipendenze esterne.
 
                     </div>
@@ -1474,7 +1528,7 @@
                 </div>
 
                 <div class="term">
-                    <div class="term-title" id="verificatore">● View:</div>
+                    <div class="term-title" id="view">● View:</div>
                     <div class="definition">Nel pattern Repository-Service-View, una View è il componente responsabile di ricevere le richieste HTTP, validare gli input (attraverso i serializer), invocare la logica applicativa fornita dal livello service e restituire una risposta HTTP al client.</div>
                 </div>
 
