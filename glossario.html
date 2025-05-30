@@ -509,6 +509,91 @@
                 margin-top: 15px;
             }
 
+            .version-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--card-light-bg);
+            color: var(--text-dark);
+            }
+
+            .dark-mode .version-table {
+                background-color: var(--card-dark-bg);
+                color: var(--text-light);
+            }
+
+            .version-table th,
+            .version-table td {
+                padding: 12px 15px;
+                border: 1px solid var(--border-light);
+            }
+
+            .dark-mode .version-table th,
+            .dark-mode .version-table td {
+                border-color: var(--border-dark);
+            }
+
+            .version-table thead {
+                background-color: rgba(52, 152, 219, 0.1);
+                color: var(--primary-color);
+            }
+
+            .dark-mode .version-table thead {
+                background-color: rgba(110, 168, 254, 0.1);
+                color: var(--primary-dark);
+            }
+
+            .version-table tbody tr:hover {
+                background-color: rgba(52, 152, 219, 0.05);
+            }
+
+            .dark-mode .version-table tbody tr:hover {
+                background-color: rgba(110, 168, 254, 0.05);
+            }
+            
+            
+            /* Stili per la tabella delle versioni */
+.version-history {
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-light);
+}
+
+.dark-mode .version-history {
+    border-color: var(--border-dark);
+}
+
+.version-history .table {
+    color: inherit;
+    margin-bottom: 0;
+}
+
+.version-history thead th {
+    border-bottom-width: 1px;
+    background-color: rgba(34, 115, 195, 0.1);
+    color: var(--primary-color);
+}
+
+.dark-mode .version-history thead th {
+    background-color: rgba(93, 173, 226, 0.1);
+    color: var(--primary-dark);
+    border-color: var(--border-dark);
+}
+
+.version-history tbody tr {
+    border-bottom: 1px solid var(--border-light);
+}
+
+.dark-mode .version-history tbody tr {
+    border-color: var(--border-dark);
+}
+
+.version-history tbody tr:hover {
+    background-color: rgba(34, 115, 195, 0.05);
+}
+
+.dark-mode .version-history tbody tr:hover {
+    background-color: rgba(93, 173, 226, 0.05);
+}
+
         </style>
     </head>
 
@@ -539,6 +624,79 @@
       
         <div class="container mt-4" id="main-content">
             <h1 class="fade-in">Glossario</h1>
+
+     <!-- Tabella delle versioni -->
+    <!-- Aggiungi questo prima della sezione "Introduzione" -->
+<div class="card version-history fade-in">
+    <div class="card-body">
+        <h2 class="card-title">Versionamento documento</h2>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Versione</th>
+                        <th>Data</th>
+                        <th>Autori</th>
+                        <th>Verificatori</th>
+                        <th>Descrizione</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.0.0</td>
+                        <td>2025-03-21</td>
+                        <td>Valentina Schivo</td>
+                        <td>-</td>
+                        <td>Approvazione RTB</td>
+                    </tr>
+                    <tr>
+                        <td>0.3.0</td>
+                        <td>2025-03-14</td>
+                        <td>Yuri Lunardon</td>
+                        <td>Matteo Mazzotti, Alessio Turetta</td>
+                        <td>Controllo finale</td>
+                    </tr>
+                    <tr>
+                        <td>0.2.2</td>
+                        <td>2025-02-26</td>
+                        <td>Alessandro Damiani</td>
+                        <td>Alessio Barraco</td>
+                        <td>Migliorie finali documento</td>
+                    </tr>
+                    <tr>
+                        <td>0.2.1</td>
+                        <td>2025-02-10</td>
+                        <td>Alessio Turetta</td>
+                        <td>Yuri Lunardon</td>
+                        <td>Aggiunti nuovi termini</td>
+                    </tr>
+                    <tr>
+                        <td>0.2.0</td>
+                        <td>2025-01-29</td>
+                        <td>Alessio Barraco</td>
+                        <td>Alessandro Damiani</td>
+                        <td>Miglioramento definizioni</td>
+                    </tr>
+                    <tr>
+                        <td>0.1.1</td>
+                        <td>2024-12-23</td>
+                        <td>Alessandro Damiani</td>
+                        <td>Alessio Barraco</td>
+                        <td>Aggiunti termini specifici</td>
+                    </tr>
+                    <tr>
+                        <td>0.1.0</td>
+                        <td>2024-12-10</td>
+                        <td>Yuri Lunardon, Alessio Turetta</td>
+                        <td>Valentina Schivo</td>
+                        <td>Inseriti termini principali</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
         
             <div class="intro">
                 <h2>Introduzione</h2>
@@ -1474,7 +1632,7 @@
                     <div class="term-title" id="test_di_integrazione">● Test di integrazione:</div>
                     <div class="definition"></div>Tipologia di test che verifica la corretta interazione tra più unità o componenti software una volta che esse sono state combinate, con l'obiettivo di accertarsi che i moduli,
                         collaborino correttamente tra loro nel produrre il comportamento atteso.
-                    </div>
+                    
                 </div>
 
                 <div class="term">
